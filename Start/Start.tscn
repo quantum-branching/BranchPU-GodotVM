@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cvmngaepeenwe"]
+
+[ext_resource type="Script" uid="uid://t081ci2anbme" path="res://Start/Console.gd" id="1_hspai"]
+[ext_resource type="Texture2D" uid="uid://bt1wxh2o1vjsy" path="res://Base/Assets/Icon.png" id="2_pdy25"]
+[ext_resource type="Texture2D" uid="uid://bd10ctsp6ikli" path="res://Base/Assets/Play.webp" id="3_hspai"]
+
+[sub_resource type="GDScript" id="GDScript_gx2gx"]
+resource_name = "Main"
+script/source = "extends ColorRect
+
+func _ready():
+	for i in OS.get_cmdline_args():
+		if i.ends_with(\".bpu\"):
+			get_tree().change_scene_to_file(\"res://Lang-ASM/ASM.tscn\")
+		if i.ends_with(\".bpux\"):
+			get_tree().change_scene_to_file(\"res://Lang-ASM/ASM.tscn\")
+		if i.ends_with(\".qb\"):
+			get_tree().change_scene_to_file(\"res://Lang-QB/QB.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_52bhu"]
+resource_name = "ASM"
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Lang-ASM/ASM.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_upmy7"]
+resource_name = "QB"
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Lang-QB/QB.tscn\")
+"
+
+[node name="Node2D" type="Node2D" unique_id=1265714023]
+script = ExtResource("1_hspai")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1822265270]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+script = SubResource("GDScript_gx2gx")
+
+[node name="ASM" type="TextureButton" parent="." unique_id=279429860]
+offset_left = 64.0
+offset_top = 98.0
+offset_right = 128.0
+offset_bottom = 162.0
+scale = Vector2(7, 7)
+texture_normal = ExtResource("2_pdy25")
+texture_pressed = ExtResource("2_pdy25")
+texture_hover = ExtResource("2_pdy25")
+texture_disabled = ExtResource("2_pdy25")
+texture_focused = ExtResource("2_pdy25")
+script = SubResource("GDScript_52bhu")
+
+[node name="QB" type="TextureButton" parent="." unique_id=1640932950]
+offset_left = 636.0
+offset_top = 98.0
+offset_right = 764.0
+offset_bottom = 226.0
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("3_hspai")
+texture_pressed = ExtResource("3_hspai")
+texture_hover = ExtResource("3_hspai")
+texture_disabled = ExtResource("3_hspai")
+texture_focused = ExtResource("3_hspai")
+script = SubResource("GDScript_upmy7")

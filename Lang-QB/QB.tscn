@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bwouxn6ypmcso"]
+
+[ext_resource type="FontFile" uid="uid://bhnvaew26rdh" path="res://Base/Assets/minecraftfont.ttf" id="1_7gov2"]
+[ext_resource type="Texture2D" uid="uid://bd10ctsp6ikli" path="res://Base/Assets/Play.webp" id="2_gfeqx"]
+[ext_resource type="Script" uid="uid://3ba865awri37" path="res://Lang-QB/runQB.gd" id="3_oo0me"]
+[ext_resource type="Texture2D" uid="uid://bp6v7x02se6md" path="res://Lang-ASM/IO/Lamps.png" id="4_gfeqx"]
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_3qo7k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjrac"]
+texture = ExtResource("4_gfeqx")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kun75"]
+sources/8 = SubResource("TileSetAtlasSource_tjrac")
+
+[node name="Node2D" type="Node2D" unique_id=1511670349]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1655014265]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Edit" type="CodeEdit" parent="." unique_id=1806708329]
+unique_name_in_owner = true
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("1_7gov2")
+syntax_highlighter = SubResource("SyntaxHighlighter_3qo7k")
+symbol_tooltip_on_hover = true
+line_folding = true
+gutters_draw_breakpoints_gutter = true
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="Run" type="TextureButton" parent="." unique_id=1513288496]
+offset_left = 1076.0
+offset_top = 574.0
+offset_right = 1204.0
+offset_bottom = 702.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_gfeqx")
+texture_pressed = ExtResource("2_gfeqx")
+texture_hover = ExtResource("2_gfeqx")
+texture_disabled = ExtResource("2_gfeqx")
+texture_focused = ExtResource("2_gfeqx")
+script = ExtResource("3_oo0me")
+
+[node name="Port1" type="TileMapLayer" parent="." unique_id=835717252]
+unique_name_in_owner = true
+visible = false
+position = Vector2(432, 4)
+scale = Vector2(1.25, 1.25)
+tile_set = SubResource("TileSet_kun75")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=11084838]
+unique_name_in_owner = true
+oversampling_override = 1.0
+access = 2
+filters = PackedStringArray("*.bpux", "*.bpu", "*.qb")
+use_native_dialog = true

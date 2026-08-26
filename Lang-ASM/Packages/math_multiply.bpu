@@ -1,0 +1,32 @@
+JMP 0 .math_main
+
+;multiply($01,$02)
+.math_multiply
+	LDI #0;
+	STA $3;
+	LDI #1;
+	STA $0;
+	.math_mult_loop
+	LDA $2;
+	CMP 1 0;
+	CND 0 .math_mult_ret;
+		LDA $2;
+		AND #1;
+		CMP 1 0;
+		CND 0 .math_mult_rest;
+			LDA 3;
+			ADD 1;
+			STA 3;
+		.math_mult_rest
+		LDA 1;
+		LSH #1;
+		STA $1;
+		LDA 2;
+		RSH 0;
+		STA $2;
+		JMP 0 .math_mult_loop;
+	.math_mult_ret
+	LDA 3;
+	POP;
+
+.math_main
