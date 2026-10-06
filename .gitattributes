@@ -1,0 +1,3 @@
+*.bpu linguist-language=Assembly
+*.q240 linguist-language=Assembly
+*.q280 linguist-language=Assembly
