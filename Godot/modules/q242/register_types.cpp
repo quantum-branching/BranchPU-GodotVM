@@ -1,4 +1,4 @@
-#include "register_types.hpp"
+#include "register_types.h"
 
 #include "core/object/class_db.h"
 #include "Q242.hpp"

@@ -1,7 +1,6 @@
 #ifndef Q242_H
 #define Q242_H
 
-#include <stdio.h>
 #include "core/object/ref_counted.h"
 
 class Q242 : public RefCounted {
