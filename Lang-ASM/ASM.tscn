@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d1di26y8xw48g"]
+
+[ext_resource type="FontFile" uid="uid://bhnvaew26rdh" path="res://Base/Assets/minecraftfont.ttf" id="1_lge40"]
+[ext_resource type="Texture2D" uid="uid://bd10ctsp6ikli" path="res://Base/Assets/Play.webp" id="2_hh1d4"]
+[ext_resource type="Script" uid="uid://dio5wnbp23b7l" path="res://Lang-ASM/runASM.gd" id="3_4bqo4"]
+[ext_resource type="Texture2D" uid="uid://bp6v7x02se6md" path="res://Lang-ASM/IO/Lamps.png" id="4_ap0q6"]
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_r0du0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fos0i"]
+texture = ExtResource("4_ap0q6")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3dxm6"]
+sources/8 = SubResource("TileSetAtlasSource_fos0i")
+
+[node name="Node2D" type="Node2D" unique_id=253935417]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1456521424]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Edit" type="CodeEdit" parent="." unique_id=1175428064]
+unique_name_in_owner = true
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("1_lge40")
+syntax_highlighter = SubResource("SyntaxHighlighter_r0du0")
+symbol_tooltip_on_hover = true
+line_folding = true
+gutters_draw_breakpoints_gutter = true
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="Run" type="TextureButton" parent="." unique_id=462204993]
+offset_left = 1076.0
+offset_top = 574.0
+offset_right = 1204.0
+offset_bottom = 702.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_hh1d4")
+texture_pressed = ExtResource("2_hh1d4")
+texture_hover = ExtResource("2_hh1d4")
+texture_disabled = ExtResource("2_hh1d4")
+texture_focused = ExtResource("2_hh1d4")
+script = ExtResource("3_4bqo4")
+
+[node name="Port1" type="TileMapLayer" parent="." unique_id=1815328954]
+unique_name_in_owner = true
+visible = false
+position = Vector2(432, 4)
+scale = Vector2(1.25, 1.25)
+tile_set = SubResource("TileSet_3dxm6")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1948863553]
+unique_name_in_owner = true
+oversampling_override = 1.0
+access = 2
+filters = PackedStringArray("*.bpu", "*.bpux")
+use_native_dialog = true

@@ -1,0 +1,61 @@
+JMP 0 .gfx_main;
+
+#define xpix $254
+#define ypix $255
+
+#implies xmin #64
+#implies ymin #128
+#implies xmax #96
+#implies ymax #160
+
+#define PORT_GPU 1
+
+#define LT 1
+#define EQ 2
+#define LTE 3
+#define GTE 5
+#define NE 6
+#define GT 7
+
+.gfx_fill
+	LDA xmin; xpix = xmin
+	STA xpix;
+	
+	LDA ymin; ypix = ymin
+	STA ypix;
+	
+	WPR 1 ypix; dly = ypix
+	
+	.gfxfill_loopy; while(ypix <= ymax)
+		CMP GTE ymax; ypix > ymax
+		CND .gfxfill_skipy;
+		
+		WPR 1 xpix; draw(xpix, dly);
+		LDA xpix;
+		
+		.gfxfill_loopx; while(xpix <= xmax)
+			LDA xpix; xpix += 1
+			ADD #01;
+			STA xpix;
+			
+			CMP GTE xmax; xpix > xmax
+			CND .gfxfill_skipx;
+			
+			WPR 1 xpix; draw(xpix, dly)
+			JMP .gfxfill_loopx;
+			.gfxfill_skipx;
+		
+		LDA xmin; xpix = xmin
+		STA xpix;
+		
+		LDA ypix; ypix += 1
+		ADD #01;
+		STA ypix;
+		
+		WPR 1 ypix; dly = ypix
+		
+		JMP .gfxfill_loopy;
+		.gfxfill_skipy;
+	POP;
+
+.gfx_main
