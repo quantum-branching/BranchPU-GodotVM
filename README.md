@@ -1,20 +1,21 @@
 ### Obtaining Executable
 
-Download pre-compiled Executable (Windows or Linux)
+Download pre-compiled Executable (Windows, Linux or BSD)
 * [Navigate to Releases](https://github.com/quantum-branching/BranchPU-VM/releases)
-* Download appropriate Executable (labeled \<OS\>\_Godot\_\<Architecture\>\_BPU\_VM)
+* Download appropriate Executable (labeled \<OS\>\_\<Architecture\>\_BPU\_VM)
 
 Compile from Source (Any platform)
 * Download Source
     * From Release
     * From Branch
-* Download [Godot/Export Templates](https://godotengine.org/download/archive/4.6.1-stable/) (if you don't already have it)
-* Open Godot
-* Import Source
-* Setup Export Templates (if you haven't already)
-    * Editor > Manage Export Templates
-    * Install from file
-* Project > Export > Export Project
+* Download the [Godot Source](https://github.com/godotengine/godot/tree/4.6)
+* Rename BranchPU-VM Source Directory to BPU-VM
+* Move Godot Source to be in the same directory as BranchPU-VM Source
+* Run the appropriate script file \(This compile a minimal version of Godot with custom modules\)
+ * Linux.sh to compile for Linux or BSD on Linux or BSD
+ * Windows.sh to compile for Windows on Linux or BSD
+ * Linux.bat to compile for Linux or BSD on Windows
+ * Windows.bat to compile for Windows on Windows
 
 ### Opening Files
 You can open a BPU file in the BPU Editor by passing that file as an argument
