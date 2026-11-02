@@ -1,0 +1,6 @@
+.*/
+Godot/Linux.sh
+Godot/Windows.sh
+*.x86_64
+*.exe
+*.zip
